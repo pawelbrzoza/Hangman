@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+
+
+<AnchorPane id="AnchorPane" blendMode="MULTIPLY" cache="false" depthTest="INHERIT" disable="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="493.0000999999975" prefWidth="756.0000999999975" rotate="0.0" snapToPixel="true" style="-fx-background-color: #3A3A3A;&#10;" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="common.Controller">
+  <children>
+    <Text id="main_text" fx:id="gameTitle" fill="WHITE" layoutX="359.0" layoutY="110.0" scaleX="9.03476266101994" scaleY="5.38570729319628" strokeType="OUTSIDE" strokeWidth="0.0" text="Hangman" visible="true">
+      <font>
+        <Font  name="Buxton Sketch" size="20.0" fx:id="x2" />
+      </font>
+    </Text>
+    <Button id="Gracz_1" fx:id="buttonServer" contentDisplay="CENTER" disable="false" font="$x2" layoutX="288.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleButtonAction1" prefHeight="90.0" prefWidth="180.0" style="-fx-button-radius:22px;&#10;" text="Player 1  (server)" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" visible="true" />
+    <Button id="Gracz_2" fx:id="buttonClient" disable="false" font="$x2" layoutX="288.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonAction2" prefHeight="90.0" prefWidth="180.0" text="Player 2 (klient)" visible="true" />
+    <Pane id="pane" fx:id="paneOfHangman" blendMode="HARD_LIGHT" layoutX="423.0" layoutY="184.0" prefHeight="308.147216796875" prefWidth="297.0" visible="false">
+      <children>
+        <Line endX="-13.0" endY="4.0" fill="#ff7a00" layoutX="75.0" layoutY="218.0" startX="-52.0" startY="46.0" strokeMiterLimit="8.2" strokeWidth="8.0" />
+        <Line endX="-69.0" endY="39.0" layoutX="166.0" layoutY="222.0" startX="-100.0" strokeWidth="8.0" />
+        <Line endX="-96.0" endY="-208.0" layoutX="159.0" layoutY="214.0" opacity="1.0" startX="-95.0" startY="0.0" strokeWidth="7.9" visible="true" />
+        <Line endX="36.0" endY="1.0" layoutX="166.0" layoutY="7.0" startX="-100.0" strokeWidth="8.0" />
+        <Line endX="-44.0" endY="-61.0" layoutX="158.0" layoutY="71.0" startX="-92.0" startY="-22.0" strokeWidth="3.0" />
+        <Line endX="2.0" endY="19.0" layoutX="201.0" layoutY="18.0" startX="2.0" startY="-9.0" strokeWidth="2.9" />
+        <Circle fx:id="a" blendMode="OVERLAY" cache="true" cacheHint="DEFAULT" depthTest="INHERIT" disable="false" fill="#f7dd9c" layoutX="202.0" layoutY="63.0" opacity="1.0" pickOnBounds="false" radius="22.5" smooth="false" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="10.0" strokeType="OUTSIDE" strokeWidth="2.0" visible="false" />
+        <Line fx:id="b" disable="false" endX="33.0" endY="-3.0" layoutX="171.0" layoutY="89.0" startX="32.0" startY="74.0" strokeWidth="2.0" visible="false" />
+        <Line fx:id="c" disable="false" endX="-11.0" endY="-13.0" layoutX="215.0" layoutY="110.0" startX="-44.0" startY="20.0" strokeWidth="2.0" visible="false" />
+        <Line fx:id="d" disable="false" endX="70.0" endY="-9.0" layoutX="136.0" layoutY="107.0" startX="112.0" startY="16.0" strokeWidth="2.0" visible="false" />
+        <Line fx:id="e" disable="false" endX="22.0" endY="22.0" layoutX="182.0" layoutY="143.0" startX="-13.0" startY="62.0" strokeWidth="2.0" visible="false" />
+        <Line fx:id="f" disable="false" endX="-34.0" endY="26.0" layoutX="268.0" layoutY="179.0" startX="-63.0" startY="-13.0" strokeWidth="2.0" visible="false" />
+      </children>
+    </Pane>
+    <Text id="text_player1" fx:id="textEnterPassword" disable="false" fill="WHITE" font="$x2" layoutX="273.0" layoutY="222.0" scaleX="2.255580702811605" scaleY="1.6516940320606222" strokeType="OUTSIDE" strokeWidth="0.0" text="enter the word for opponent:" textAlignment="CENTER" visible="false" />
+    <TextField id="field_player1" fx:id="fieldEnterPassword" alignment="CENTER" disable="false" focusTraversable="false" layoutX="295.0" layoutY="264.0" prefWidth="200.0" visible="false" />
+    <Text id="text_ip_player2" fx:id="textEnterIp" fill="WHITE" font="$x2" fontSmoothingType="GRAY" layoutX="292.0" layoutY="197.0" scaleX="1.8660485230103416" scaleY="1.6679081197233039" strokeType="OUTSIDE" strokeWidth="0.0" text="enter the IP address of the server:" textAlignment="CENTER" visible="false" />
+    <TextField id="field_ip_player2" fx:id="fieldEnterIp" focusTraversable="true" layoutX="290.0" layoutY="236.0" prefWidth="200.0" promptText="" text="192.168.215.97" visible="false" />
+    <Text id="text_connecting" fx:id="textWaiting" fill="WHITE" font="$x2" layoutX="306.0" layoutY="235.0" scaleX="2.0286369373138458" scaleY="2.0343406820598013" strokeType="OUTSIDE" strokeWidth="0.0" text="waiting for response ..." visible="false" />
+    <Label id="pole_tekstowe" fx:id="labelEnteredPassword" alignment="CENTER" layoutX="162.0" layoutY="77.0" prefHeight="40.0" prefWidth="433.0" text="default" textAlignment="CENTER" textFill="WHITE" textOverrun="ELLIPSIS" visible="false" wrapText="false">
+      <font>
+        <Font name="Buxton Sketch" size="40.0" />
+      </font>
+    </Label>
+    <GridPane id="siatka" fx:id="grid" alignment="CENTER" blendMode="HARD_LIGHT" cache="true" cacheHint="ROTATE" focusTraversable="false" gridLinesVisible="false" hgap="0.0" layoutX="35.0" layoutY="198.0" mouseTransparent="false" prefHeight="235.00009999999747" prefWidth="357.0" vgap="10.0" visible="false">
+      <children>
+        <Button id="A" fx:id="button00" cancelButton="false" contentDisplay="CENTER" defaultButton="false" focusTraversable="false" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="A" textAlignment="CENTER" textOverrun="CLIP" underline="false" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <font>
+            <Font size="14.0" fx:id="x1" />
+          </font>
+        </Button>
+        <Button id="B" fx:id="button01" cancelButton="false" contentDisplay="CENTER" depthTest="INHERIT" focusTraversable="false" font="$x1" mnemonicParsing="false" mouseTransparent="false" opacity="1.0" pickOnBounds="false" prefHeight="40.0" prefWidth="40.0" text="Ą" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button id="C" fx:id="button02" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="B" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button03" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="C" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button04" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ć" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button05" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="D" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button06" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="E" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button07" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ę" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button08" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="F" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button09" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="G" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button10" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="H" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button11" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="I" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button id="button0012" fx:id="button12" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="J" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button13" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="K" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button14" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="L" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button15" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ł" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button16" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="M" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button17" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="N" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button18" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ń" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button19" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="O" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button20" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ó" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button21" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="P" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button22" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Q" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button23" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="R" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button24" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="S" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button25" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ś" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button26" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="T" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button27" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="U" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button28" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="V" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button29" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="W" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+        <Button id="button230" fx:id="button30" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="X" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button31" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Y" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button32" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Z" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button33" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ż" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+        <Button fx:id="button34" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" font="$x1" mnemonicParsing="false" opacity="1.0" prefHeight="40.0" prefWidth="40.0" text="Ź" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints fillHeight="true" maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Text id="end_of_attempt" fx:id="textHanged" fill="RED" layoutX="336.0" layoutY="114.0" scaleX="2.4767548717571666" scaleY="1.876130209877916" strokeType="OUTSIDE" strokeWidth="0.0" text="hanged... :(" visible="false">
+      <font>
+        <Font name="Buxton Sketch" size="30.0" />
+      </font>
+    </Text>
+    <Text fx:id="textGuessedPassword" fill="#00ff29" layoutX="330.0" layoutY="102.0" scaleX="5.021137017661746" scaleY="3.8087455931074756" strokeType="OUTSIDE" strokeWidth="0.0" text="you guessed the word ! :)" visible="false">
+      <font>
+        <Font name="Buxton Sketch" size="12.0" />
+      </font>
+    </Text>
+    <Text fx:id="pointsOpponent" fill="WHITE" font="$x2" layoutX="18.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="points opponent: " visible="false" />
+    <Text fx:id="yourPoints" fill="WHITE" font="$x2" layoutX="18.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="your points: " visible="false" />
+    <Text id="yourPoints" fx:id="yourPointsInt" fill="#10cc00" font="$x2" layoutX="120.0" layoutY="31.0" scaleX="1.392337164750958" scaleY="0.9999959509688646" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+    <Text id="pointsOpponent" fx:id="pointsOpponentInt" fill="RED" font="$x2" layoutX="149.0" layoutY="471.0" scaleX="1.4444824262972364" scaleY="1.0000040490311353" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+  </children>
+</AnchorPane>
